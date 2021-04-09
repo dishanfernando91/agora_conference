@@ -50,29 +50,29 @@ export default function Home() {
       <View style={{ borderWidth: 1, borderColor: 'grey', width: 360, margin: 20}}></View>
 
       <View>
-      <Text style={styles.title}>Livestream Demo</Text>
-      <View style={styles.createContainer}>
-        <TouchableOpacity style={styles.button} onPress={createLive}>
-          <Text style={styles.buttonText}>Start</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.joinContainer}>
-        <TextInput
-          value={joinChannel}
-          onChangeText={setJoinChannel}
-          placeholder="Enter Livestream Id"
-          style={styles.joinChannelInput}
-        />
-        <TouchableOpacity
-          onPress={joinLive}
-          disabled={joinChannel === ''}
-          style={[
-            styles.button,
-            { backgroundColor: joinChannel === '' ? '#555555' : '#78b0ff' },
-          ]}>
-          <Text style={styles.buttonText}>Join</Text>
-        </TouchableOpacity>
-      </View>
+        <Text style={styles.title}>Communications Demo</Text>
+        <View style={styles.createContainer}>
+            <TouchableOpacity style={styles.button} onPress={createLive}>
+            <Text style={styles.buttonText}>Start</Text>
+            </TouchableOpacity>
+        </View>
+        <View style={styles.joinContainer}>
+            <TextInput
+            value={joinChannel}
+            onChangeText={setJoinChannel}
+            placeholder="Enter Livestream Id"
+            style={styles.joinChannelInput}
+            />
+            <TouchableOpacity
+            onPress={joinLive}
+            disabled={joinChannel === ''}
+            style={[
+                styles.button,
+                { backgroundColor: joinChannel === '' ? '#555555' : '#78b0ff' },
+            ]}>
+            <Text style={styles.buttonText}>Join</Text>
+            </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
@@ -83,12 +83,14 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
     alignItems: 'center',
-    justifyContent: 'center',
+    // justifyContent: 'center',
+    paddingTop: 20
   },
   title: {
     fontSize: 30,
     marginBottom: 50,
     color: '#333',
+    marginTop: 20
   },
   createContainer: {
     width: '90%',

@@ -30,7 +30,7 @@ export default function Live(props) {
       const result = await Share.share({ message: props.route.params.channel });
       if (result.action === Share.sharedAction) {
         if (result.activityType) {
-          // shared with activity type of result.activityType
+
         } else {
           // shared
         }
@@ -51,14 +51,14 @@ export default function Live(props) {
     AgoraEngine.current = await RtcEngine.create(
       '7a6b1145afbf43f5b8055a66892a96cd',
     );
-    AgoraEngine.current.enableVideo();
-    AgoraEngine.current.setChannelProfile(ChannelProfile.LiveBroadcasting);
-    if (isBroadcaster)
-      AgoraEngine.current.setClientRole(ClientRole.Broadcaster);
+    AgoraEngine.current.enableAudio();
+    AgoraEngine.current.setChannelProfile(ChannelProfile.Communication);
+    // if (isBroadcaster)
+    //   AgoraEngine.current.setClientRole(ClientRole.Broadcaster);
 
-    AgoraEngine.current.addListener('RemoteVideoStateChanged', (uid, state) => {
-      if (uid === 1) setBroadcasterVideoState(state);
-    });
+    // AgoraEngine.current.addListener('RemoteVideoStateChanged', (uid, state) => {
+    //   if (uid === 1) setBroadcasterVideoState(state);
+    // });
 
     AgoraEngine.current.addListener(
       'JoinChannelSuccess',
@@ -69,7 +69,7 @@ export default function Live(props) {
     );
   };
 
-  const onSwitchCamera = () => AgoraEngine.current.switchCamera();
+//   const onSwitchCamera = () => AgoraEngine.current.switchCamera();
 
   useEffect(() => {
     const uid = isBroadcaster ? 1 : 0;
@@ -126,7 +126,7 @@ export default function Live(props) {
             <TouchableOpacity style={styles.button} onPress={onShare}>
               <Text style={styles.buttonText}>Share</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button} onPress={onSwitchCamera}>
+            <TouchableOpacity style={styles.button} disabled>
               <Text style={styles.buttonText}>Switch Camera</Text>
             </TouchableOpacity>
           </View>
