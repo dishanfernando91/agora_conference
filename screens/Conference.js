@@ -30,6 +30,9 @@ export default function Conference({ route }) {
       <TouchableOpacity style={styles.shareButton} onPress={onShare}>
         <Text style={styles.shareButtonText}>Share</Text>
       </TouchableOpacity>
+      <TouchableOpacity style={styles.shareButton} onPress={navigation.goBack()}>
+        <Text style={styles.shareButtonText}>Share</Text>
+      </TouchableOpacity>
       </>
     )
 }
